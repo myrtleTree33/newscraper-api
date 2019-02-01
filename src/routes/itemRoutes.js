@@ -25,4 +25,12 @@ routes.get('/', async (req, res) => {
   res.json({ items });
 });
 
+/**
+ * Gets the number of items in DB
+ */
+routes.get('/count', async (req, res) => {
+  const count = await Item.find({}).count;
+  res.json({ count });
+});
+
 export default routes;
